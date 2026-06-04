@@ -1,24 +1,57 @@
 # 🚀 AeroForge AI — Mission Design Co-Pilot
 
-An open-source, AI-powered spacecraft systems engineering tool for student teams.
-AeroForge AI combines a **validated aerospace physics engine** with **Claude** to instantly generate professional Systems Architecture Design Documents from a plain-English mission brief.
+AeroForge AI is an open-source spacecraft systems engineering tool built for student aerospace teams. Enter a mission objective, set your hardware parameters, and instantly receive a professional Systems Architecture Design Document backed by real aerospace physics.
 
 ---
 
-## What It Does
+## Features
 
-1. **Student inputs** a mission objective and sets hardware sliders in the sidebar.
-2. **Physics Engine** calculates 8 hard constraints using real aerospace equations:
-   - Orbital velocity & period (Kepler's Laws)
-   - Required propellant mass (Tsiolkovsky Rocket Equation)
-   - Communications path loss (Free-Space Path Loss)
-   - Required solar array power (Eclipse-aware sizing)
-   - Orbital lifetime (Atmospheric Drag Model)
-   - Ground station contact time (Coverage geometry)
-   - Radiation dose (AP8/AE8 trapped belt model)
-   - Thermal swing (Stefan-Boltzmann radiative balance)
-3. **Claude** receives those exact numbers via a strict system prompt and writes a full Systems Architecture Document covering mass budgets, subsystem recommendations, a risk matrix, and design trade-offs.
+- 8 validated aerospace physics equations running in the background
+- AI-generated systems architecture reports tailored to your exact constraints
+- Real-time design warnings for dangerous mass ratios, path loss, radiation, and orbital decay
+- Download your mission report as a Markdown file
+- Clean dashboard UI with live metric display
 
 ---
 
-## System Architecture
+## Physics Engine
+
+| Module | Output |
+|--------|--------|
+| Orbital Mechanics (Kepler's Laws) | Velocity & orbital period |
+| Propulsion (Tsiolkovsky Rocket Equation) | Propellant mass & mass ratio |
+| Communications (Free-Space Path Loss) | Signal loss in dB |
+| Power (Eclipse-aware solar sizing) | Required solar array wattage |
+| Atmospheric Drag | Orbital lifetime in days |
+| Ground Coverage | Daily contact minutes |
+| Radiation (AP8/AE8 model) | Total ionizing dose in krad |
+| Thermal (Stefan-Boltzmann) | Temperature extremes & swing |
+
+---
+
+## Project Structure
+
+```
+aeroforge-ai/
+├── app.py            ← Streamlit web application
+├── physics.py        ← Aerospace physics engine
+├── prompts.py        ← AI prompt architecture
+├── requirements.txt  ← Dependencies
+└── .streamlit/
+    └── secrets.toml  ← API key (not committed to GitHub)
+```
+
+---
+
+## Local Setup
+
+```bash
+git clone https://github.com/YOUR_USERNAME/aeroforge-ai.git
+cd aeroforge-ai
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+> **Disclaimer:** Outputs are educational. Always verify with a licensed engineer before hardware procurement.
